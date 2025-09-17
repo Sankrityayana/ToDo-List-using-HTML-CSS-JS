@@ -1,4 +1,4 @@
-## To‑Do List (HTML • CSS • JS)
+# To‑Do List (HTML • CSS • JS)
 
 A clean, responsive To‑Do List web app with full CRUD, inline editing, and localStorage persistence — no frameworks.
 
@@ -37,5 +37,3 @@ python -m http.server 8080 ; Start-Process http://localhost:8080/index.html
 
 ### Screenshots
 Add your screenshots here.
-
-# ToDo-List-using-HTML-CSS-JS
