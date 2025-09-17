@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>To‑Do List</title>
+    <meta name="description" content="A clean, responsive To‑Do List web app with full CRUD and localStorage." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header" role="banner">
+      <div class="container header-inner">
+        <h1 class="app-title">To‑Do List</h1>
+        <div class="header-actions">
+          <button id="themeToggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme">
+            <!-- Sun/Moon icon swaps via CSS -->
+            <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zm10.48 0l1.79-1.79 1.41 1.41-1.79 1.8-1.41-1.42zM12 4V1h-0v3h0zm0 19v-3h0v3h0zM4 12H1v0h3v0zm19 0h-3v0h3v0zM6.76 19.16l-1.42 1.42-1.79-1.8 1.41-1.41 1.8 1.79zm12.69 0l1.41 1.42-1.79 1.8-1.41-1.41 1.79-1.81zM12 7a5 5 0 100 10 5 5 0 000-10z"/></svg>
+            <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" role="main">
+      <section class="add-task" aria-labelledby="addTaskTitle">
+        <h2 id="addTaskTitle" class="visually-hidden">Add a new task</h2>
+        <form id="addForm" class="add-form" autocomplete="off" aria-label="Add new task">
+          <label for="taskInput" class="visually-hidden">Task</label>
+          <input id="taskInput" class="input" type="text" name="task" placeholder="What do you need to do?" maxlength="200" required aria-required="true" />
+          <button type="submit" class="btn btn-primary" aria-label="Add task">Add</button>
+        </form>
+      </section>
+
+      <section class="list-controls" aria-label="List actions">
+        <div class="counters">
+          <span class="badge" id="activeCount" aria-live="polite">0 active</span>
+          <span class="badge" id="completedCount" aria-live="polite">0 completed</span>
+        </div>
+        <div class="actions">
+          <button id="clearCompletedBtn" class="btn btn-ghost" disabled>Clear completed</button>
+        </div>
+      </section>
+
+      <section class="boards" aria-label="Tasks">
+        <div class="board" aria-labelledby="activeTitle">
+          <div class="board-header">
+            <h2 id="activeTitle">Active</h2>
+          </div>
+          <ul id="activeList" class="task-list" role="list" aria-describedby="activeEmpty"></ul>
+          <p id="activeEmpty" class="empty">You're all caught up. Add a task to get started.</p>
+        </div>
+        <div class="board" aria-labelledby="completedTitle">
+          <div class="board-header">
+            <h2 id="completedTitle">Completed</h2>
+          </div>
+          <ul id="completedList" class="task-list" role="list" aria-describedby="completedEmpty"></ul>
+          <p id="completedEmpty" class="empty">Nothing completed yet.</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Confirm Modal -->
+    <div id="confirmModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="confirmTitle" aria-describedby="confirmDesc" hidden>
+      <div class="modal-backdrop" data-close="true"></div>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <h3 id="confirmTitle">Are you sure?</h3>
+          <p id="confirmDesc">This action cannot be undone.</p>
+          <div class="modal-actions">
+            <button class="btn btn-ghost" data-action="cancel">Cancel</button>
+            <button class="btn btn-danger" data-action="confirm">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+  </html>
